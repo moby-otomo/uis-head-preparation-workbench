@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moby-otomo.local/schemas/head-preparation/v1/quick-pixelize-config.schema.json",
+  "title": "UIS Head Preparation Quick Pixelize Configuration v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "algorithmVersion",
+    "alpha",
+    "bounds",
+    "target",
+    "resampling",
+    "transparentPadding",
+    "pngEncoding"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "uis.head-preparation.quick-pixelize-config/1" },
+    "algorithmVersion": { "const": "1.0.0" },
+    "alpha": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "threshold"],
+      "properties": {
+        "mode": { "const": "clear-at-or-below" },
+        "threshold": { "type": "integer", "minimum": 0, "maximum": 254 }
+      }
+    },
+    "bounds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode"],
+      "properties": {
+        "mode": { "const": "normalized-alpha-content" }
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "fit"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 },
+        "fit": { "const": "contain" }
+      }
+    },
+    "resampling": { "const": "nearest-neighbor" },
+    "transparentPadding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["top", "right", "bottom", "left"],
+      "properties": {
+        "top": { "type": "integer", "minimum": 0 },
+        "right": { "type": "integer", "minimum": 0 },
+        "bottom": { "type": "integer", "minimum": 0 },
+        "left": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "pngEncoding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["colorType", "bitDepth", "filterType", "deflateLevel", "deflateStrategy"],
+      "properties": {
+        "colorType": { "const": "rgba" },
+        "bitDepth": { "const": 8 },
+        "filterType": { "const": 0 },
+        "deflateLevel": { "const": 9 },
+        "deflateStrategy": { "const": 3 }
+      }
+    }
+  }
+}

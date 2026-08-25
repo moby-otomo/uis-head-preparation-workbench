@@ -8,7 +8,9 @@ portable domain records; no database or external production archive is needed.
 `domain` defines direction, lineage, preparation, review, reproducibility, and
 policy. `storage` implements a content-addressed object store and append-only
 records. `validation` checks schemas, images, hashes, lineage, lifecycle, local
-test policy, and optional compatibility profiles.
+test policy, and optional compatibility profiles. `quick-pixelize` contains the
+versioned deterministic raster engine and the small processor that connects it
+to existing runs and candidates.
 
 The core candidate is an artist-head preparation result. It is deliberately not
 a Switchboard cartridge. A future adapter must explicitly convert one or more
@@ -37,8 +39,16 @@ separate. A reproducibility key hashes canonical JSON containing source content,
 workflow ID/version/parameters, and an optional compatibility profile ID. It
 excludes timestamps and record IDs.
 
+Quick Pixelize uses the existing separation: the source encoded hash pins the
+input, the candidate artifact records encoded and decoded-pixel hashes, and the
+run reproducibility key identifies the input/configuration/algorithm tuple.
+The engine writes a metadata-free PNG with explicit encoder settings. Canonical
+decoded RGBA identity is the cross-environment image guarantee; encoded equality
+is guaranteed for the repository's pinned Node and `pngjs` versions.
+
 ## Deferred modules
 
-Quick Pixelize, AI providers, a cartridge exporter, chassis preview, GUI,
+Artistic palette normalization, sophisticated reduction, outline
+reinterpretation, AI providers, a cartridge exporter, chassis preview, GUI,
 Switchboard execution, archive writing, production promotion, and canon
-registration are outside Phase 1.
+registration remain deferred after Phase 2A.

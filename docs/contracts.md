@@ -11,6 +11,7 @@ JSON Schema Draft 2020-12 files in `schemas/v1/` are authoritative.
 | `ValidationReport` | Machine-readable layered results and compatibility outcome |
 | `Fixture` | Workbench-local synthetic/non-canon calibration contract |
 | `CompatibilityProfile` | Versioned downstream constraints outside the core model |
+| `QuickPixelizeConfig` | Versioned deterministic mechanical raster parameters |
 
 Paths inside records must be portable relative POSIX paths. Absolute paths,
 backslashes, traversal segments, and NUL bytes are rejected.
@@ -19,5 +20,9 @@ backslashes, traversal segments, and NUL bytes are rejected.
 boolean. Current review state is derived from events. Timestamp fields provide
 audit provenance but do not enter hashes used to compare deterministic work.
 
-The current Phase 1 runtime can record manual artist-import runs and candidates;
-it contains no raster transformation implementation.
+Quick Pixelize configuration is validated by
+`schemas/v1/quick-pixelize-config.schema.json`. A successful processing call
+records it under the existing `PreparationRun.workflow.parameters`; it does not
+create a parallel run or candidate contract. Workflow fields express the
+algorithm identity as `id: quick-pixelize` and `version: 1.0.0`, conceptually
+`quick-pixelize/1.0.0`.

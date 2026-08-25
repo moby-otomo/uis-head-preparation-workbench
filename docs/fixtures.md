@@ -31,5 +31,7 @@ reduction and identity-detail survival after the basic geometry path is stable.
 Neither fixture is an approved UIS production asset.
 
 Tests generate additional tiny protocol-level PNGs inside `.tmp-tests/`. Phase
-2 may add stable Quick Pixelize golden images only after an algorithm version
-is defined; those outputs must remain separate from these immutable sources.
+2A runs the accepted source through `quick-pixelize/1.0.0` only in temporary
+workspaces. No output has yet been accepted or committed as a permanent
+mechanical golden. Any future golden must remain separate from these immutable
+sources and must not be described as artistically approved UIS production art.

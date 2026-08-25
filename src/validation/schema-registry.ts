@@ -13,6 +13,7 @@ export const SCHEMA_IDS = {
   validationReport: "https://moby-otomo.local/schemas/head-preparation/v1/validation-report.schema.json",
   fixture: "https://moby-otomo.local/schemas/head-preparation/v1/fixture.schema.json",
   compatibilityProfile: "https://moby-otomo.local/schemas/head-preparation/v1/compatibility-profile.schema.json",
+  quickPixelizeConfig: "https://moby-otomo.local/schemas/head-preparation/v1/quick-pixelize-config.schema.json",
 } as const;
 
 export interface SchemaResult {

@@ -46,6 +46,10 @@ interface CreateCandidateInput {
   createdAt: string;
 }
 
+interface CreateCandidateFromBufferInput extends Omit<CreateCandidateInput, "inputPath"> {
+  buffer: Buffer;
+}
+
 interface AppendReviewInput {
   id?: string;
   action: ReviewAction;
@@ -149,6 +153,18 @@ export class Workspace {
   }
 
   async createCandidate(input: CreateCandidateInput): Promise<CandidateAsset> {
+    const buffer = await readFile(input.inputPath);
+    return this.createCandidateFromBuffer({
+      buffer,
+      ...(input.id ? { id: input.id } : {}),
+      sourceAssetId: input.sourceAssetId,
+      preparationRunId: input.preparationRunId,
+      direction: input.direction,
+      createdAt: input.createdAt,
+    });
+  }
+
+  async createCandidateFromBuffer(input: CreateCandidateFromBufferInput): Promise<CandidateAsset> {
     assertDirection(input.direction);
     const source = await this.loadSource(input.sourceAssetId);
     const run = await this.loadRun(input.preparationRunId);
@@ -158,7 +174,7 @@ export class Workspace {
     }
     const id = input.id ?? `candidate-${randomUUID()}`;
     assertId(id, "candidate id");
-    const buffer = await readFile(input.inputPath);
+    const buffer = Buffer.from(input.buffer);
     const description = inspectPngBuffer(buffer);
     const objectPath = await this.storeObject(buffer, description.encodedSha256);
     const record: CandidateAsset = {
