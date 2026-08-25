@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moby-otomo.local/schemas/head-preparation/v1/source-asset.schema.json",
+  "title": "UIS Head Preparation Source Asset v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "kind",
+    "id",
+    "identity",
+    "direction",
+    "sourceType",
+    "artifact",
+    "importedAt",
+    "importedBy"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "uis.head-preparation.source-asset/1" },
+    "kind": { "const": "source-asset" },
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "identity": { "$ref": "common.schema.json#/$defs/identity" },
+    "direction": { "$ref": "common.schema.json#/$defs/direction" },
+    "sourceType": { "enum": ["artist-png", "synthetic-test-png"] },
+    "artifact": { "$ref": "common.schema.json#/$defs/imageArtifact" },
+    "importedAt": { "type": "string", "format": "date-time" },
+    "importedBy": { "type": "string", "minLength": 1 },
+    "supersedesSourceAssetId": { "$ref": "common.schema.json#/$defs/id" }
+  }
+}

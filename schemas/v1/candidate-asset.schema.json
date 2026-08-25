@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moby-otomo.local/schemas/head-preparation/v1/candidate-asset.schema.json",
+  "title": "UIS Prepared Head Candidate v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "kind",
+    "id",
+    "identity",
+    "direction",
+    "sourceAssetId",
+    "preparationRunId",
+    "artifact",
+    "initialState",
+    "createdAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "uis.head-preparation.candidate-asset/1" },
+    "kind": { "const": "candidate-asset" },
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "identity": { "$ref": "common.schema.json#/$defs/identity" },
+    "direction": { "$ref": "common.schema.json#/$defs/direction" },
+    "sourceAssetId": { "$ref": "common.schema.json#/$defs/id" },
+    "preparationRunId": { "$ref": "common.schema.json#/$defs/id" },
+    "artifact": { "$ref": "common.schema.json#/$defs/imageArtifact" },
+    "initialState": { "const": "candidate" },
+    "createdAt": { "type": "string", "format": "date-time" }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moby-otomo.local/schemas/head-preparation/v1/common.schema.json",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$",
+      "maxLength": 160
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "direction": {
+      "enum": ["facing-left", "facing-right"]
+    },
+    "portablePath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\u0000]+$"
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["characterId", "displayName", "canonStatus"],
+      "properties": {
+        "characterId": { "$ref": "#/$defs/id" },
+        "displayName": { "type": "string", "minLength": 1, "maxLength": 240 },
+        "canonStatus": { "enum": ["non-canon", "production-unspecified"] }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "characterId": { "type": "string", "pattern": "^TEST_" } },
+            "required": ["characterId"]
+          },
+          "then": {
+            "properties": { "canonStatus": { "const": "non-canon" } }
+          }
+        }
+      ]
+    },
+    "imageArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "mediaType",
+        "encodedSha256",
+        "pixelDataSha256",
+        "byteLength",
+        "width",
+        "height",
+        "hasAlphaChannel",
+        "hasTransparency"
+      ],
+      "properties": {
+        "path": { "$ref": "#/$defs/portablePath" },
+        "mediaType": { "const": "image/png" },
+        "encodedSha256": { "$ref": "#/$defs/sha256" },
+        "pixelDataSha256": { "$ref": "#/$defs/sha256" },
+        "byteLength": { "type": "integer", "minimum": 1 },
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 },
+        "hasAlphaChannel": { "type": "boolean" },
+        "hasTransparency": { "type": "boolean" }
+      }
+    }
+  }
+}

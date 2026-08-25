@@ -1,0 +1,27 @@
+{
+  "name": "uis-head-preparation-workbench",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Contracts and validation for immutable UIS head preparation candidates.",
+  "engines": {
+    "node": ">=24.19.0 <25"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "node scripts/lint.mjs && npm run typecheck",
+    "test": "npm run build && node --test dist/tests/*.test.js",
+    "check": "npm run lint && npm test"
+  },
+  "dependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "pngjs": "7.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "26.2.0",
+    "@types/pngjs": "6.0.5",
+    "typescript": "7.0.2"
+  }
+}

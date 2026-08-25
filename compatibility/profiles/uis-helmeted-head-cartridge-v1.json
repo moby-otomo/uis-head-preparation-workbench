@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "uis.head-preparation.compatibility-profile/1",
+  "kind": "compatibility-profile",
+  "id": "uis-helmeted-head-cartridge-v1",
+  "profileVersion": 1,
+  "target": {
+    "architecture": "atomic-helmeted-head-cartridge",
+    "moduleType": "HELMETED-HEAD-CARTRIDGE",
+    "supportedDirections": ["facing-left", "facing-right"],
+    "canvas": { "width": 1536, "height": 1920 },
+    "coordinateSystem": { "origin": "top-left", "xAxis": "right", "yAxis": "down" },
+    "registeredCanvasAnchor": { "x": 0, "y": 0, "unit": "pixels" },
+    "layerOrder": ["BODY-CHASSIS", "HELMETED-HEAD-CARTRIDGE"],
+    "representation": {
+      "mediaType": "image/png",
+      "colorModel": "RGBA",
+      "registration": "full-canvas-origin",
+      "automaticScalingAllowed": false
+    },
+    "pairing": {
+      "pairedDirectionsRequired": true,
+      "crossDirectionPairingAllowed": false,
+      "silentMirroringAllowed": false
+    },
+    "downstreamSchemas": {
+      "preparation": "uis.helmeted-head-cartridge-preparation/1",
+      "approvedRecord": "uis.helmeted-head-cartridge-record/1",
+      "registry": "uis.helmeted-head-cartridge-registry/1",
+      "platformPack": "uis.helmeted-head-cartridge-pack/1",
+      "characterPack": "uis.character-pack/2"
+    },
+    "identifierPattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$",
+    "naming": {
+      "directionLabels": { "facing-left": "FacingLeft", "facing-right": "FacingRight" },
+      "templates": {
+        "source": "SOURCE_<characterId>-<DirectionLabel>-HelmetedHeadCartridge.png",
+        "candidate": "<characterId>-<DirectionLabel>-HELMETED-HEAD-CARTRIDGE-Candidate.png",
+        "preparationRecord": "<characterId>_HelmetedHeadCartridgePreparation_UIS_v01.json",
+        "approved": "<characterId>-<DirectionLabel>-HELMETED-HEAD-CARTRIDGE-Approved.png",
+        "approvedRecord": "<characterId>_HelmetedHeadCartridgeRecord_UIS_v01.json"
+      }
+    }
+  },
+  "evidence": {
+    "authority": "owner-approved-production-contract",
+    "runtimeDependency": false,
+    "externalVerification": "not-performed-by-phase-1-runtime"
+  }
+}

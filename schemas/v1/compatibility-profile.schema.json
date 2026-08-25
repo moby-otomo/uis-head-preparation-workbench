@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moby-otomo.local/schemas/head-preparation/v1/compatibility-profile.schema.json",
+  "title": "UIS Head Preparation Compatibility Profile v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "kind", "id", "profileVersion", "target", "evidence"],
+  "properties": {
+    "schemaVersion": { "const": "uis.head-preparation.compatibility-profile/1" },
+    "kind": { "const": "compatibility-profile" },
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "profileVersion": { "type": "integer", "minimum": 1 },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "architecture",
+        "moduleType",
+        "supportedDirections",
+        "canvas",
+        "coordinateSystem",
+        "registeredCanvasAnchor",
+        "layerOrder",
+        "representation",
+        "pairing",
+        "downstreamSchemas",
+        "identifierPattern",
+        "naming"
+      ],
+      "properties": {
+        "architecture": { "type": "string", "minLength": 1 },
+        "moduleType": { "type": "string", "minLength": 1 },
+        "supportedDirections": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "common.schema.json#/$defs/direction" }
+        },
+        "canvas": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["width", "height"],
+          "properties": {
+            "width": { "type": "integer", "minimum": 1 },
+            "height": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "coordinateSystem": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["origin", "xAxis", "yAxis"],
+          "properties": {
+            "origin": { "type": "string", "minLength": 1 },
+            "xAxis": { "type": "string", "minLength": 1 },
+            "yAxis": { "type": "string", "minLength": 1 }
+          }
+        },
+        "registeredCanvasAnchor": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["x", "y", "unit"],
+          "properties": {
+            "x": { "type": "number" },
+            "y": { "type": "number" },
+            "unit": { "type": "string", "minLength": 1 }
+          }
+        },
+        "layerOrder": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "representation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mediaType", "colorModel", "registration", "automaticScalingAllowed"],
+          "properties": {
+            "mediaType": { "type": "string", "minLength": 1 },
+            "colorModel": { "type": "string", "minLength": 1 },
+            "registration": { "type": "string", "minLength": 1 },
+            "automaticScalingAllowed": { "type": "boolean" }
+          }
+        },
+        "pairing": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["pairedDirectionsRequired", "crossDirectionPairingAllowed", "silentMirroringAllowed"],
+          "properties": {
+            "pairedDirectionsRequired": { "type": "boolean" },
+            "crossDirectionPairingAllowed": { "type": "boolean" },
+            "silentMirroringAllowed": { "type": "boolean" }
+          }
+        },
+        "downstreamSchemas": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": { "type": "string", "minLength": 1 }
+        },
+        "identifierPattern": { "type": "string", "minLength": 1 },
+        "naming": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["directionLabels", "templates"],
+          "properties": {
+            "directionLabels": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": { "type": "string", "minLength": 1 }
+            },
+            "templates": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authority", "runtimeDependency", "externalVerification"],
+      "properties": {
+        "authority": { "type": "string", "minLength": 1 },
+        "runtimeDependency": { "type": "boolean" },
+        "externalVerification": { "enum": ["not-performed-by-phase-1-runtime", "verified-by-adapter"] }
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "uis.head-preparation.fixture/1",
+  "kind": "fixture",
+  "id": "TEST_HeadPreparationCalibration-UncleA_UIS_v01",
+  "identity": {
+    "characterId": "TEST_HeadPreparationCalibration-UncleA",
+    "displayName": "Workbench Calibration Uncle A",
+    "canonStatus": "non-canon"
+  },
+  "fixtureType": "artistic-calibration",
+  "artifactStatus": "available",
+  "sourceArtifacts": [
+    {
+      "direction": "facing-left",
+      "originalFilename": "PAPICO_02b-left.png",
+      "provenance": {
+        "kind": "artist-authored"
+      },
+      "artifact": {
+        "path": "fixtures/calibration/TEST_HeadPreparationCalibration-UncleA-FacingLeft_UIS_v01.png",
+        "mediaType": "image/png",
+        "encodedSha256": "ba06ce19e8bb4e98035a0727be71713fe2cd2814a2f816161bd68a2b1d0aa66b",
+        "pixelDataSha256": "030873a7d3e510e89c5347bc70ea39b544c3f95f5606e9a954306f2197c7e67f",
+        "byteLength": 130811,
+        "width": 648,
+        "height": 686,
+        "hasAlphaChannel": true,
+        "hasTransparency": true
+      }
+    },
+    {
+      "direction": "facing-right",
+      "originalFilename": "PAPICO_02b-right.png",
+      "provenance": {
+        "kind": "mirror-derived",
+        "sourceDirection": "facing-left",
+        "pixelExactToCurrentSource": false
+      },
+      "artifact": {
+        "path": "fixtures/calibration/TEST_HeadPreparationCalibration-UncleA-FacingRight-MirrorDerived_UIS_v01.png",
+        "mediaType": "image/png",
+        "encodedSha256": "a3550a34879e48713efe1da5319a8fc9eff6f12b7a19f9d63e32cf62def1bbfd",
+        "pixelDataSha256": "1ac1be8760db293d8f15f18c8542030019e95c3cb0e3eb130d5246d149c56d58",
+        "byteLength": 130623,
+        "width": 648,
+        "height": 686,
+        "hasAlphaChannel": true,
+        "hasTransparency": true
+      }
+    }
+  ],
+  "directions": ["facing-left", "facing-right"],
+  "purpose": [
+    "basic silhouette preservation",
+    "facial geometry preservation",
+    "direction metadata",
+    "transparency and edge handling",
+    "future Quick Pixelize regression",
+    "future preparation-mode comparison"
+  ],
+  "requiredVisualTraits": [
+    "bald head",
+    "flat skin colour",
+    "simple eyes",
+    "eyebrows",
+    "mild eyebrow asymmetry",
+    "mouth",
+    "ears",
+    "transparent exterior"
+  ],
+  "intentionalOmissions": [
+    "nose omitted as an intentional property of the artist's character style",
+    "glasses",
+    "hair",
+    "facial hair",
+    "highlights and shadows"
+  ],
+  "knownRasterCharacteristics": [
+    "right-facing source is mirror-derived and not an independently authored view",
+    "right-facing source is not pixel-exact to a current horizontal flip of the accepted left-facing source",
+    "each source contains 50 detached very-low-alpha components totalling 871 pixels; detached alpha does not exceed 6 of 255",
+    "each source contains 62 green-dominant low-alpha pixels; green-dominant alpha does not exceed 9 of 255",
+    "low-alpha remnants are accepted source artifacts for deterministic alpha-cleanup evaluation, not identity features"
+  ],
+  "productionExportAllowed": false
+}

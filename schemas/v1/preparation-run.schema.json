@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moby-otomo.local/schemas/head-preparation/v1/preparation-run.schema.json",
+  "title": "UIS Head Preparation Run v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "kind",
+    "id",
+    "sourceAssetId",
+    "sourceEncodedSha256",
+    "workflow",
+    "reproducibilityKey",
+    "createdAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "uis.head-preparation.run/1" },
+    "kind": { "const": "preparation-run" },
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "sourceAssetId": { "$ref": "common.schema.json#/$defs/id" },
+    "sourceEncodedSha256": { "$ref": "common.schema.json#/$defs/sha256" },
+    "workflow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version", "deterministic", "parameters"],
+      "properties": {
+        "id": { "$ref": "common.schema.json#/$defs/id" },
+        "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "deterministic": { "type": "boolean" },
+        "parameters": { "type": "object", "additionalProperties": true }
+      }
+    },
+    "compatibilityProfileId": { "$ref": "common.schema.json#/$defs/id" },
+    "reproducibilityKey": { "$ref": "common.schema.json#/$defs/sha256" },
+    "createdAt": { "type": "string", "format": "date-time" }
+  }
+}

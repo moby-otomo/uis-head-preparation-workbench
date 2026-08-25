@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "uis.head-preparation.source-asset/1",
+  "kind": "source-asset",
+  "id": "source-invalid-1",
+  "identity": {
+    "characterId": "TEST_Invalid",
+    "displayName": "Invalid",
+    "canonStatus": "non-canon"
+  },
+  "sourceType": "synthetic-test-png",
+  "artifact": {
+    "path": "objects/sha256/00/file",
+    "mediaType": "image/png",
+    "encodedSha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "pixelDataSha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "byteLength": 70,
+    "width": 1,
+    "height": 1,
+    "hasAlphaChannel": true,
+    "hasTransparency": true
+  },
+  "importedAt": "2026-08-24T00:00:00.000Z",
+  "importedBy": "phase-1-test"
+}

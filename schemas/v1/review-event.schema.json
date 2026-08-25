@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moby-otomo.local/schemas/head-preparation/v1/review-event.schema.json",
+  "title": "UIS Head Preparation Review Event v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "kind",
+    "id",
+    "candidateAssetId",
+    "sequence",
+    "action",
+    "actor",
+    "occurredAt",
+    "reason"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "uis.head-preparation.review-event/1" },
+    "kind": { "const": "review-event" },
+    "id": { "$ref": "common.schema.json#/$defs/id" },
+    "candidateAssetId": { "$ref": "common.schema.json#/$defs/id" },
+    "sequence": { "type": "integer", "minimum": 1 },
+    "action": { "enum": ["approve", "reject", "supersede"] },
+    "actor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "id"],
+      "properties": {
+        "kind": { "const": "human" },
+        "id": { "type": "string", "minLength": 1 }
+      }
+    },
+    "occurredAt": { "type": "string", "format": "date-time" },
+    "reason": { "type": "string", "minLength": 1 },
+    "validationReportId": { "$ref": "common.schema.json#/$defs/id" },
+    "replacementCandidateAssetId": { "$ref": "common.schema.json#/$defs/id" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "action": { "const": "approve" } }, "required": ["action"] },
+      "then": {
+        "properties": { "validationReportId": { "$ref": "common.schema.json#/$defs/id" } },
+        "required": ["validationReportId"]
+      }
+    },
+    {
+      "if": { "properties": { "action": { "const": "supersede" } }, "required": ["action"] },
+      "then": {
+        "properties": { "replacementCandidateAssetId": { "$ref": "common.schema.json#/$defs/id" } },
+        "required": ["replacementCandidateAssetId"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "uis.head-preparation.source-asset/1",
+  "kind": "source-asset",
+  "id": "source-test-left-1",
+  "identity": {
+    "characterId": "TEST_ContractUncle",
+    "displayName": "Contract Uncle",
+    "canonStatus": "non-canon"
+  },
+  "direction": "facing-left",
+  "sourceType": "synthetic-test-png",
+  "artifact": {
+    "path": "objects/sha256/00/0000000000000000000000000000000000000000000000000000000000000000",
+    "mediaType": "image/png",
+    "encodedSha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "pixelDataSha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "byteLength": 70,
+    "width": 1,
+    "height": 1,
+    "hasAlphaChannel": true,
+    "hasTransparency": true
+  },
+  "importedAt": "2026-08-24T00:00:00.000Z",
+  "importedBy": "phase-1-test"
+}

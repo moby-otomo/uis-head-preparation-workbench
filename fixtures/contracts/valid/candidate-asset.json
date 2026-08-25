@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "uis.head-preparation.candidate-asset/1",
+  "kind": "candidate-asset",
+  "id": "candidate-test-left-1",
+  "identity": {
+    "characterId": "TEST_ContractUncle",
+    "displayName": "Contract Uncle",
+    "canonStatus": "non-canon"
+  },
+  "direction": "facing-left",
+  "sourceAssetId": "source-test-left-1",
+  "preparationRunId": "run-test-left-1",
+  "artifact": {
+    "path": "objects/sha256/22/2222222222222222222222222222222222222222222222222222222222222222",
+    "mediaType": "image/png",
+    "encodedSha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "pixelDataSha256": "3333333333333333333333333333333333333333333333333333333333333333",
+    "byteLength": 70,
+    "width": 1,
+    "height": 1,
+    "hasAlphaChannel": true,
+    "hasTransparency": true
+  },
+  "initialState": "candidate",
+  "createdAt": "2026-08-24T00:00:00.000Z"
+}

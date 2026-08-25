@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "uis.head-preparation.candidate-asset/1",
+  "kind": "candidate-asset",
+  "id": "candidate-invalid-1",
+  "identity": {
+    "characterId": "TEST_Invalid",
+    "displayName": "Invalid",
+    "canonStatus": "non-canon"
+  },
+  "direction": "facing-left",
+  "sourceAssetId": "source-invalid-1",
+  "preparationRunId": "run-invalid-1",
+  "artifact": {
+    "path": "/absolute/not-portable.png",
+    "mediaType": "image/png",
+    "encodedSha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "pixelDataSha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "byteLength": 70,
+    "width": 1,
+    "height": 1,
+    "hasAlphaChannel": true,
+    "hasTransparency": true
+  },
+  "initialState": "candidate",
+  "createdAt": "2026-08-24T00:00:00.000Z"
+}
