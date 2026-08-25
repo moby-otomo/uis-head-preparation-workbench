@@ -68,11 +68,21 @@ key, or production image.
 - `src/validation/` — schema, PNG, integrity, policy, and compatibility checks.
 - `compatibility/profiles/` — versioned downstream target descriptions.
 - `fixtures/` — synthetic and contract-only non-canon fixtures.
+- `review/` — generated non-canon human-review bundles; never production assets.
 - `docs/` — architecture, lifecycle, contracts, and compatibility decisions.
 
 See [architecture](docs/architecture.md), [lifecycle](docs/lifecycle.md),
 [contracts](docs/contracts.md), [Quick Pixelize Phase 2A](docs/quick-pixelize-phase-2a.md),
 and [compatibility](docs/compatibility.md).
+
+The current Phase 2B-1 bundle compares four controlled Quick Pixelize
+configurations across both accepted calibration directions. Open its
+[`REVIEW.html`](review/phase-2b-1/TEST_QuickPixelizeCalibrationA_UIS_v01/REVIEW.html)
+for an enlarged checkerboard comparison. No review output is frozen as a
+golden merely by appearing in that bundle. Following explicit human review,
+the `reference-cleanup-64` left/right pair is separately frozen as the
+[`quick-pixelize/1.0.0` mechanical regression baseline](fixtures/goldens/quick-pixelize-1.0.0/README.md).
+This is not artistic approval, a production sizing standard, or canon.
 
 The calibration strategy is incremental: the accepted Fixture A pair covers
 basic flat-colour head geometry, including eyes, eyebrows, mouth, and mild

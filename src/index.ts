@@ -5,6 +5,7 @@ export * from "./domain/model.js";
 export * from "./quick-pixelize/config.js";
 export * from "./quick-pixelize/engine.js";
 export * from "./quick-pixelize/processor.js";
+export * from "./review/quick-pixelize-review-bundle.js";
 export * from "./storage/workspace.js";
 export * from "./validation/png.js";
 export * from "./validation/schema-registry.js";

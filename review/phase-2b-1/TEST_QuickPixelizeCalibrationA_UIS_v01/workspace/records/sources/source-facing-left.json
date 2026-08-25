@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "uis.head-preparation.source-asset/1",
+  "kind": "source-asset",
+  "id": "source-facing-left",
+  "identity": {
+    "characterId": "TEST_HeadPreparationCalibration-UncleA",
+    "displayName": "Workbench Calibration Uncle A",
+    "canonStatus": "non-canon"
+  },
+  "direction": "facing-left",
+  "sourceType": "artist-png",
+  "artifact": {
+    "path": "objects/sha256/ba/ba06ce19e8bb4e98035a0727be71713fe2cd2814a2f816161bd68a2b1d0aa66b",
+    "mediaType": "image/png",
+    "encodedSha256": "ba06ce19e8bb4e98035a0727be71713fe2cd2814a2f816161bd68a2b1d0aa66b",
+    "pixelDataSha256": "030873a7d3e510e89c5347bc70ea39b544c3f95f5606e9a954306f2197c7e67f",
+    "byteLength": 130811,
+    "width": 648,
+    "height": 686,
+    "hasAlphaChannel": true,
+    "hasTransparency": true
+  },
+  "importedAt": "2026-08-25T08:30:00.000Z",
+  "importedBy": "phase-2b-1-review-generator"
+}

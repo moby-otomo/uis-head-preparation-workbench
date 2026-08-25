@@ -31,7 +31,8 @@ reduction and identity-detail survival after the basic geometry path is stable.
 Neither fixture is an approved UIS production asset.
 
 Tests generate additional tiny protocol-level PNGs inside `.tmp-tests/`. Phase
-2A runs the accepted source through `quick-pixelize/1.0.0` only in temporary
-workspaces. No output has yet been accepted or committed as a permanent
-mechanical golden. Any future golden must remain separate from these immutable
-sources and must not be described as artistically approved UIS production art.
+2A runs the accepted source through `quick-pixelize/1.0.0`. Following the Phase
+2B controlled review, the owner accepted the `reference-cleanup-64` pair as
+repository-owned mechanical regression goldens. They remain separate from the
+immutable sources and are explicitly not artistically approved UIS production
+art, a production-size standard, or canon.

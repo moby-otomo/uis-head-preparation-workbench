@@ -1,7 +1,7 @@
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 
-const roots = ["src", "tests", "schemas", "docs", "fixtures", "compatibility", "scripts"];
+const roots = ["src", "tests", "schemas", "docs", "fixtures", "compatibility", "scripts", "review"];
 const forbiddenArchiveFragment = "Documents/Obsidian/UNCLESINSPACE";
 const failures = [];
 

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "uis.head-preparation.quick-pixelize-config/1",
+  "algorithmVersion": "1.0.0",
+  "alpha": {
+    "mode": "clear-at-or-below",
+    "threshold": 0
+  },
+  "bounds": {
+    "mode": "normalized-alpha-content"
+  },
+  "target": {
+    "width": 64,
+    "height": 64,
+    "fit": "contain"
+  },
+  "resampling": "nearest-neighbor",
+  "transparentPadding": {
+    "top": 2,
+    "right": 2,
+    "bottom": 2,
+    "left": 2
+  },
+  "pngEncoding": {
+    "colorType": "rgba",
+    "bitDepth": 8,
+    "filterType": 0,
+    "deflateLevel": 9,
+    "deflateStrategy": 3
+  }
+}

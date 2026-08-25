@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moby-otomo.local/schemas/head-preparation/v1/quick-pixelize-mechanical-golden-set.schema.json",
+  "title": "UIS Head Preparation Quick Pixelize Mechanical Golden Set v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "kind",
+    "id",
+    "fixtureId",
+    "goldenStatus",
+    "acceptanceScope",
+    "acceptanceAuthority",
+    "canonStatus",
+    "artisticApproval",
+    "productionHeadSizeStandard",
+    "productionExportAllowed",
+    "taxonomyAllocated",
+    "algorithm",
+    "configuration",
+    "comparisonEvidence",
+    "goldens"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "uis.head-preparation.quick-pixelize-mechanical-golden-set/1" },
+    "kind": { "const": "quick-pixelize-mechanical-golden-set" },
+    "id": { "type": "string", "pattern": "^TEST_[A-Za-z0-9._-]+$", "maxLength": 160 },
+    "fixtureId": { "type": "string", "pattern": "^TEST_[A-Za-z0-9._-]+$", "maxLength": 160 },
+    "goldenStatus": { "const": "frozen-mechanical-regression" },
+    "acceptanceScope": { "const": "quick-pixelize-mechanical-regression-only" },
+    "acceptanceAuthority": { "const": "owner-explicit-human-review" },
+    "canonStatus": { "const": "non-canon" },
+    "artisticApproval": { "const": false },
+    "productionHeadSizeStandard": { "const": false },
+    "productionExportAllowed": { "const": false },
+    "taxonomyAllocated": { "const": false },
+    "algorithm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version", "identity"],
+      "properties": {
+        "id": { "const": "quick-pixelize" },
+        "version": { "const": "1.0.0" },
+        "identity": { "const": "quick-pixelize/1.0.0" }
+      }
+    },
+    "configuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "path", "encodedSha256", "canonicalSha256", "value"],
+      "properties": {
+        "id": { "const": "reference-cleanup-64" },
+        "path": { "$ref": "common.schema.json#/$defs/portablePath" },
+        "encodedSha256": { "$ref": "common.schema.json#/$defs/sha256" },
+        "canonicalSha256": { "$ref": "common.schema.json#/$defs/sha256" },
+        "value": { "$ref": "quick-pixelize-config.schema.json" }
+      }
+    },
+    "comparisonEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reviewBundleId", "reviewBundlePath", "preservedNonGoldenConfigurationIds"],
+      "properties": {
+        "reviewBundleId": { "$ref": "common.schema.json#/$defs/id" },
+        "reviewBundlePath": { "$ref": "common.schema.json#/$defs/portablePath" },
+        "preservedNonGoldenConfigurationIds": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["alpha-preserve-64", "zero-padding-64", "larger-grid-96"]
+          }
+        }
+      }
+    },
+    "goldens": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["direction", "source", "reviewEvidence", "artifact"],
+        "properties": {
+          "direction": { "$ref": "common.schema.json#/$defs/direction" },
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "encodedSha256", "pixelDataSha256"],
+            "properties": {
+              "path": { "$ref": "common.schema.json#/$defs/portablePath" },
+              "encodedSha256": { "$ref": "common.schema.json#/$defs/sha256" },
+              "pixelDataSha256": { "$ref": "common.schema.json#/$defs/sha256" }
+            }
+          },
+          "reviewEvidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["candidateAssetId", "candidateAssetRecordPath", "preparationRunId", "preparationRunRecordPath"],
+            "properties": {
+              "candidateAssetId": { "$ref": "common.schema.json#/$defs/id" },
+              "candidateAssetRecordPath": { "$ref": "common.schema.json#/$defs/portablePath" },
+              "preparationRunId": { "$ref": "common.schema.json#/$defs/id" },
+              "preparationRunRecordPath": { "$ref": "common.schema.json#/$defs/portablePath" }
+            }
+          },
+          "artifact": { "$ref": "common.schema.json#/$defs/imageArtifact" }
+        }
+      }
+    }
+  }
+}

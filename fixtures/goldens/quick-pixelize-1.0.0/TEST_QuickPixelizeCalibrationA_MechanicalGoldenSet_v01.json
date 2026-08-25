@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "uis.head-preparation.quick-pixelize-mechanical-golden-set/1",
+  "kind": "quick-pixelize-mechanical-golden-set",
+  "id": "TEST_QuickPixelizeCalibrationA_MechanicalGoldenSet_v01",
+  "fixtureId": "TEST_HeadPreparationCalibration-UncleA_UIS_v01",
+  "goldenStatus": "frozen-mechanical-regression",
+  "acceptanceScope": "quick-pixelize-mechanical-regression-only",
+  "acceptanceAuthority": "owner-explicit-human-review",
+  "canonStatus": "non-canon",
+  "artisticApproval": false,
+  "productionHeadSizeStandard": false,
+  "productionExportAllowed": false,
+  "taxonomyAllocated": false,
+  "algorithm": {
+    "id": "quick-pixelize",
+    "version": "1.0.0",
+    "identity": "quick-pixelize/1.0.0"
+  },
+  "configuration": {
+    "id": "reference-cleanup-64",
+    "path": "fixtures/goldens/quick-pixelize-1.0.0/TEST_QuickPixelizeCalibrationA-ReferenceCleanup64_QuickPixelizeConfig_v01.json",
+    "encodedSha256": "338f06f31db5456c73677592e394f7c0a1746bbdd34fa07ef429656ba57e5d71",
+    "canonicalSha256": "48253306084aa1c24a72146916f24efe566665d3b80934edf682966eb8a191d8",
+    "value": {
+      "schemaVersion": "uis.head-preparation.quick-pixelize-config/1",
+      "algorithmVersion": "1.0.0",
+      "alpha": {
+        "mode": "clear-at-or-below",
+        "threshold": 15
+      },
+      "bounds": {
+        "mode": "normalized-alpha-content"
+      },
+      "target": {
+        "width": 64,
+        "height": 64,
+        "fit": "contain"
+      },
+      "resampling": "nearest-neighbor",
+      "transparentPadding": {
+        "top": 2,
+        "right": 2,
+        "bottom": 2,
+        "left": 2
+      },
+      "pngEncoding": {
+        "colorType": "rgba",
+        "bitDepth": 8,
+        "filterType": 0,
+        "deflateLevel": 9,
+        "deflateStrategy": 3
+      }
+    }
+  },
+  "comparisonEvidence": {
+    "reviewBundleId": "TEST_QuickPixelizeCalibrationA_UIS_v01",
+    "reviewBundlePath": "review/phase-2b-1/TEST_QuickPixelizeCalibrationA_UIS_v01/bundle.json",
+    "preservedNonGoldenConfigurationIds": [
+      "alpha-preserve-64",
+      "zero-padding-64",
+      "larger-grid-96"
+    ]
+  },
+  "goldens": [
+    {
+      "direction": "facing-left",
+      "source": {
+        "path": "fixtures/calibration/TEST_HeadPreparationCalibration-UncleA-FacingLeft_UIS_v01.png",
+        "encodedSha256": "ba06ce19e8bb4e98035a0727be71713fe2cd2814a2f816161bd68a2b1d0aa66b",
+        "pixelDataSha256": "030873a7d3e510e89c5347bc70ea39b544c3f95f5606e9a954306f2197c7e67f"
+      },
+      "reviewEvidence": {
+        "candidateAssetId": "candidate-reference-cleanup-64-facing-left",
+        "candidateAssetRecordPath": "review/phase-2b-1/TEST_QuickPixelizeCalibrationA_UIS_v01/workspace/records/candidates/candidate-reference-cleanup-64-facing-left.json",
+        "preparationRunId": "run-reference-cleanup-64-facing-left",
+        "preparationRunRecordPath": "review/phase-2b-1/TEST_QuickPixelizeCalibrationA_UIS_v01/workspace/records/runs/run-reference-cleanup-64-facing-left.json"
+      },
+      "artifact": {
+        "path": "fixtures/goldens/quick-pixelize-1.0.0/TEST_QuickPixelizeCalibrationA-ReferenceCleanup64-FacingLeft_MechanicalGolden_v01.png",
+        "mediaType": "image/png",
+        "encodedSha256": "16b63039a86ad07241cdd591b1cd745e57ef2cf81d0d3d7f3b7a3ef519ebd3f7",
+        "pixelDataSha256": "dd8b29f3fc0b43ede24dd72c5559ed12de4b071249ed3e77f1a6e83913079edb",
+        "byteLength": 5146,
+        "width": 64,
+        "height": 64,
+        "hasAlphaChannel": true,
+        "hasTransparency": true
+      }
+    },
+    {
+      "direction": "facing-right",
+      "source": {
+        "path": "fixtures/calibration/TEST_HeadPreparationCalibration-UncleA-FacingRight-MirrorDerived_UIS_v01.png",
+        "encodedSha256": "a3550a34879e48713efe1da5319a8fc9eff6f12b7a19f9d63e32cf62def1bbfd",
+        "pixelDataSha256": "1ac1be8760db293d8f15f18c8542030019e95c3cb0e3eb130d5246d149c56d58"
+      },
+      "reviewEvidence": {
+        "candidateAssetId": "candidate-reference-cleanup-64-facing-right",
+        "candidateAssetRecordPath": "review/phase-2b-1/TEST_QuickPixelizeCalibrationA_UIS_v01/workspace/records/candidates/candidate-reference-cleanup-64-facing-right.json",
+        "preparationRunId": "run-reference-cleanup-64-facing-right",
+        "preparationRunRecordPath": "review/phase-2b-1/TEST_QuickPixelizeCalibrationA_UIS_v01/workspace/records/runs/run-reference-cleanup-64-facing-right.json"
+      },
+      "artifact": {
+        "path": "fixtures/goldens/quick-pixelize-1.0.0/TEST_QuickPixelizeCalibrationA-ReferenceCleanup64-FacingRight_MechanicalGolden_v01.png",
+        "mediaType": "image/png",
+        "encodedSha256": "c7eb45dbc685fe11de56e2cfc62fad2ec0a8373a65af8efff065508164579e07",
+        "pixelDataSha256": "143d0a46805be283e389179def57334d6f2417095de9daa3027e63c2593e855f",
+        "byteLength": 5099,
+        "width": 64,
+        "height": 64,
+        "hasAlphaChannel": true,
+        "hasTransparency": true
+      }
+    }
+  ]
+}

@@ -12,7 +12,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "node scripts/lint.mjs && npm run typecheck",
     "test": "npm run build && node --test dist/tests/*.test.js",
-    "check": "npm run lint && npm test"
+    "check": "npm run lint && npm test",
+    "generate:review-phase-2b-1": "npm run build && node scripts/generate-phase-2b-1-review.mjs"
   },
   "dependencies": {
     "ajv": "8.20.0",

@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://moby-otomo.local/schemas/head-preparation/v1/quick-pixelize-review-bundle.schema.json",
+  "title": "UIS Head Preparation Quick Pixelize Review Bundle v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "kind",
+    "id",
+    "fixtureId",
+    "canonStatus",
+    "goldenStatus",
+    "productionExportAllowed",
+    "algorithm",
+    "referenceConfigurationId",
+    "configurations",
+    "sources",
+    "workspaceRoot",
+    "results",
+    "generatedAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "uis.head-preparation.quick-pixelize-review-bundle/1" },
+    "kind": { "const": "quick-pixelize-review-bundle" },
+    "id": { "type": "string", "pattern": "^TEST_[A-Za-z0-9._-]+$", "maxLength": 160 },
+    "fixtureId": { "type": "string", "pattern": "^TEST_[A-Za-z0-9._-]+$", "maxLength": 160 },
+    "canonStatus": { "const": "non-canon" },
+    "goldenStatus": { "const": "not-frozen" },
+    "productionExportAllowed": { "const": false },
+    "algorithm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version", "identity"],
+      "properties": {
+        "id": { "const": "quick-pixelize" },
+        "version": { "const": "1.0.0" },
+        "identity": { "const": "quick-pixelize/1.0.0" }
+      }
+    },
+    "referenceConfigurationId": { "$ref": "common.schema.json#/$defs/id" },
+    "configurations": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "label", "controlledChange", "reviewQuestion", "config"],
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "label": { "type": "string", "minLength": 1 },
+          "controlledChange": {
+            "enum": ["reference", "alpha-threshold", "transparent-padding", "target-grid"]
+          },
+          "reviewQuestion": { "type": "string", "minLength": 1 },
+          "config": { "$ref": "quick-pixelize-config.schema.json" }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["direction", "repositoryPath", "provenance", "artifact", "sourceAssetRecordPath"],
+        "properties": {
+          "direction": { "$ref": "common.schema.json#/$defs/direction" },
+          "repositoryPath": { "$ref": "common.schema.json#/$defs/portablePath" },
+          "provenance": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["kind"],
+            "properties": {
+              "kind": { "enum": ["artist-authored", "mirror-derived"] },
+              "sourceDirection": { "$ref": "common.schema.json#/$defs/direction" },
+              "pixelExactToCurrentSource": { "type": "boolean" }
+            }
+          },
+          "artifact": { "$ref": "common.schema.json#/$defs/imageArtifact" },
+          "sourceAssetRecordPath": { "$ref": "common.schema.json#/$defs/portablePath" }
+        }
+      }
+    },
+    "workspaceRoot": { "$ref": "common.schema.json#/$defs/portablePath" },
+    "results": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "configurationId",
+          "direction",
+          "preparationRunRecordPath",
+          "candidateAssetRecordPath",
+          "reviewPngPath",
+          "artifact",
+          "sourceBounds",
+          "outputPlacement",
+          "clearedPixelCount"
+        ],
+        "properties": {
+          "configurationId": { "$ref": "common.schema.json#/$defs/id" },
+          "direction": { "$ref": "common.schema.json#/$defs/direction" },
+          "preparationRunRecordPath": { "$ref": "common.schema.json#/$defs/portablePath" },
+          "candidateAssetRecordPath": { "$ref": "common.schema.json#/$defs/portablePath" },
+          "reviewPngPath": { "$ref": "common.schema.json#/$defs/portablePath" },
+          "artifact": { "$ref": "common.schema.json#/$defs/imageArtifact" },
+          "sourceBounds": { "$ref": "#/$defs/rectangle" },
+          "outputPlacement": { "$ref": "#/$defs/rectangle" },
+          "clearedPixelCount": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "generatedAt": { "type": "string", "format": "date-time" }
+  },
+  "$defs": {
+    "rectangle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "width", "height"],
+      "properties": {
+        "x": { "type": "integer", "minimum": 0 },
+        "y": { "type": "integer", "minimum": 0 },
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 }
+      }
+    }
+  }
+}

@@ -14,6 +14,8 @@ export const SCHEMA_IDS = {
   fixture: "https://moby-otomo.local/schemas/head-preparation/v1/fixture.schema.json",
   compatibilityProfile: "https://moby-otomo.local/schemas/head-preparation/v1/compatibility-profile.schema.json",
   quickPixelizeConfig: "https://moby-otomo.local/schemas/head-preparation/v1/quick-pixelize-config.schema.json",
+  quickPixelizeReviewBundle: "https://moby-otomo.local/schemas/head-preparation/v1/quick-pixelize-review-bundle.schema.json",
+  quickPixelizeMechanicalGoldenSet: "https://moby-otomo.local/schemas/head-preparation/v1/quick-pixelize-mechanical-golden-set.schema.json",
 } as const;
 
 export interface SchemaResult {

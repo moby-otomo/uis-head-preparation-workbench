@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "uis.head-preparation.candidate-asset/1",
+  "kind": "candidate-asset",
+  "id": "candidate-larger-grid-96-facing-right",
+  "identity": {
+    "characterId": "TEST_HeadPreparationCalibration-UncleA",
+    "displayName": "Workbench Calibration Uncle A",
+    "canonStatus": "non-canon"
+  },
+  "direction": "facing-right",
+  "sourceAssetId": "source-facing-right",
+  "preparationRunId": "run-larger-grid-96-facing-right",
+  "artifact": {
+    "path": "objects/sha256/16/16c4cd900c2472ce4d44f4ebfee897a87a5c847f8071959a04ecc1110814de86",
+    "mediaType": "image/png",
+    "encodedSha256": "16c4cd900c2472ce4d44f4ebfee897a87a5c847f8071959a04ecc1110814de86",
+    "pixelDataSha256": "66601b9e5c37047fa6924ee91ac63833ebd7f2712928c4b43e7915a5261672ac",
+    "byteLength": 11922,
+    "width": 96,
+    "height": 96,
+    "hasAlphaChannel": true,
+    "hasTransparency": true
+  },
+  "initialState": "candidate",
+  "createdAt": "2026-08-25T08:30:00.000Z"
+}

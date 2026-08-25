@@ -46,6 +46,19 @@ The engine writes a metadata-free PNG with explicit encoder settings. Canonical
 decoded RGBA identity is the cross-environment image guarantee; encoded equality
 is guaranteed for the repository's pinned Node and `pngjs` versions.
 
+Phase 2B-1 review bundles are a presentation and evidence layer over those same
+records. A bundle contains a repository-local Workspace with immutable sources,
+runs, candidates, and content-addressed objects, plus friendly PNG copies and
+static Markdown/HTML review sheets. The presentation copies must hash-match
+their candidates. Bundle contracts force non-canon, non-exportable, and
+not-frozen status; they create no review event.
+
+An accepted mechanical golden is stored separately from its historical review
+bundle. Its manifest pins source hashes, exact configuration bytes and canonical
+configuration identity, algorithm version, review candidate lineage, and both
+encoded and decoded output hashes. Mechanical acceptance does not change the
+candidate lifecycle and therefore does not fabricate an `approve` review event.
+
 ## Deferred modules
 
 Artistic palette normalization, sophisticated reduction, outline

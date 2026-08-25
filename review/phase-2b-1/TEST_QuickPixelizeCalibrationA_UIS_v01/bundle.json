@@ -1,0 +1,455 @@
+{
+  "schemaVersion": "uis.head-preparation.quick-pixelize-review-bundle/1",
+  "kind": "quick-pixelize-review-bundle",
+  "id": "TEST_QuickPixelizeCalibrationA_UIS_v01",
+  "fixtureId": "TEST_HeadPreparationCalibration-UncleA_UIS_v01",
+  "canonStatus": "non-canon",
+  "goldenStatus": "not-frozen",
+  "productionExportAllowed": false,
+  "algorithm": {
+    "id": "quick-pixelize",
+    "version": "1.0.0",
+    "identity": "quick-pixelize/1.0.0"
+  },
+  "referenceConfigurationId": "reference-cleanup-64",
+  "configurations": [
+    {
+      "id": "reference-cleanup-64",
+      "label": "Reference cleanup at 64 × 64",
+      "controlledChange": "reference",
+      "reviewQuestion": "Does the Phase 2A reference preserve identity and readable asymmetry?",
+      "config": {
+        "schemaVersion": "uis.head-preparation.quick-pixelize-config/1",
+        "algorithmVersion": "1.0.0",
+        "alpha": {
+          "mode": "clear-at-or-below",
+          "threshold": 15
+        },
+        "bounds": {
+          "mode": "normalized-alpha-content"
+        },
+        "target": {
+          "width": 64,
+          "height": 64,
+          "fit": "contain"
+        },
+        "resampling": "nearest-neighbor",
+        "transparentPadding": {
+          "top": 2,
+          "right": 2,
+          "bottom": 2,
+          "left": 2
+        },
+        "pngEncoding": {
+          "colorType": "rgba",
+          "bitDepth": 8,
+          "filterType": 0,
+          "deflateLevel": 9,
+          "deflateStrategy": 3
+        }
+      }
+    },
+    {
+      "id": "alpha-preserve-64",
+      "label": "Preserve low-alpha remnants at 64 × 64",
+      "controlledChange": "alpha-threshold",
+      "reviewQuestion": "Does retaining alpha 1–15 introduce visible edge noise compared with the reference?",
+      "config": {
+        "schemaVersion": "uis.head-preparation.quick-pixelize-config/1",
+        "algorithmVersion": "1.0.0",
+        "alpha": {
+          "mode": "clear-at-or-below",
+          "threshold": 0
+        },
+        "bounds": {
+          "mode": "normalized-alpha-content"
+        },
+        "target": {
+          "width": 64,
+          "height": 64,
+          "fit": "contain"
+        },
+        "resampling": "nearest-neighbor",
+        "transparentPadding": {
+          "top": 2,
+          "right": 2,
+          "bottom": 2,
+          "left": 2
+        },
+        "pngEncoding": {
+          "colorType": "rgba",
+          "bitDepth": 8,
+          "filterType": 0,
+          "deflateLevel": 9,
+          "deflateStrategy": 3
+        }
+      }
+    },
+    {
+      "id": "zero-padding-64",
+      "label": "Zero configured padding at 64 × 64",
+      "controlledChange": "transparent-padding",
+      "reviewQuestion": "Does edge-to-edge fitting feel cramped compared with the two-pixel reference padding?",
+      "config": {
+        "schemaVersion": "uis.head-preparation.quick-pixelize-config/1",
+        "algorithmVersion": "1.0.0",
+        "alpha": {
+          "mode": "clear-at-or-below",
+          "threshold": 15
+        },
+        "bounds": {
+          "mode": "normalized-alpha-content"
+        },
+        "target": {
+          "width": 64,
+          "height": 64,
+          "fit": "contain"
+        },
+        "resampling": "nearest-neighbor",
+        "transparentPadding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "pngEncoding": {
+          "colorType": "rgba",
+          "bitDepth": 8,
+          "filterType": 0,
+          "deflateLevel": 9,
+          "deflateStrategy": 3
+        }
+      }
+    },
+    {
+      "id": "larger-grid-96",
+      "label": "Larger 96 × 96 review grid",
+      "controlledChange": "target-grid",
+      "reviewQuestion": "Does the larger mechanical grid preserve useful detail without changing character geometry?",
+      "config": {
+        "schemaVersion": "uis.head-preparation.quick-pixelize-config/1",
+        "algorithmVersion": "1.0.0",
+        "alpha": {
+          "mode": "clear-at-or-below",
+          "threshold": 15
+        },
+        "bounds": {
+          "mode": "normalized-alpha-content"
+        },
+        "target": {
+          "width": 96,
+          "height": 96,
+          "fit": "contain"
+        },
+        "resampling": "nearest-neighbor",
+        "transparentPadding": {
+          "top": 2,
+          "right": 2,
+          "bottom": 2,
+          "left": 2
+        },
+        "pngEncoding": {
+          "colorType": "rgba",
+          "bitDepth": 8,
+          "filterType": 0,
+          "deflateLevel": 9,
+          "deflateStrategy": 3
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "direction": "facing-left",
+      "repositoryPath": "fixtures/calibration/TEST_HeadPreparationCalibration-UncleA-FacingLeft_UIS_v01.png",
+      "provenance": {
+        "kind": "artist-authored"
+      },
+      "artifact": {
+        "path": "fixtures/calibration/TEST_HeadPreparationCalibration-UncleA-FacingLeft_UIS_v01.png",
+        "mediaType": "image/png",
+        "encodedSha256": "ba06ce19e8bb4e98035a0727be71713fe2cd2814a2f816161bd68a2b1d0aa66b",
+        "pixelDataSha256": "030873a7d3e510e89c5347bc70ea39b544c3f95f5606e9a954306f2197c7e67f",
+        "byteLength": 130811,
+        "width": 648,
+        "height": 686,
+        "hasAlphaChannel": true,
+        "hasTransparency": true
+      },
+      "sourceAssetRecordPath": "workspace/records/sources/source-facing-left.json"
+    },
+    {
+      "direction": "facing-right",
+      "repositoryPath": "fixtures/calibration/TEST_HeadPreparationCalibration-UncleA-FacingRight-MirrorDerived_UIS_v01.png",
+      "provenance": {
+        "kind": "mirror-derived",
+        "sourceDirection": "facing-left",
+        "pixelExactToCurrentSource": false
+      },
+      "artifact": {
+        "path": "fixtures/calibration/TEST_HeadPreparationCalibration-UncleA-FacingRight-MirrorDerived_UIS_v01.png",
+        "mediaType": "image/png",
+        "encodedSha256": "a3550a34879e48713efe1da5319a8fc9eff6f12b7a19f9d63e32cf62def1bbfd",
+        "pixelDataSha256": "1ac1be8760db293d8f15f18c8542030019e95c3cb0e3eb130d5246d149c56d58",
+        "byteLength": 130623,
+        "width": 648,
+        "height": 686,
+        "hasAlphaChannel": true,
+        "hasTransparency": true
+      },
+      "sourceAssetRecordPath": "workspace/records/sources/source-facing-right.json"
+    }
+  ],
+  "workspaceRoot": "workspace",
+  "results": [
+    {
+      "configurationId": "reference-cleanup-64",
+      "direction": "facing-left",
+      "preparationRunRecordPath": "workspace/records/runs/run-reference-cleanup-64-facing-left.json",
+      "candidateAssetRecordPath": "workspace/records/candidates/candidate-reference-cleanup-64-facing-left.json",
+      "reviewPngPath": "outputs/reference-cleanup-64-facing-left.png",
+      "artifact": {
+        "path": "objects/sha256/16/16b63039a86ad07241cdd591b1cd745e57ef2cf81d0d3d7f3b7a3ef519ebd3f7",
+        "mediaType": "image/png",
+        "encodedSha256": "16b63039a86ad07241cdd591b1cd745e57ef2cf81d0d3d7f3b7a3ef519ebd3f7",
+        "pixelDataSha256": "dd8b29f3fc0b43ede24dd72c5559ed12de4b071249ed3e77f1a6e83913079edb",
+        "byteLength": 5146,
+        "width": 64,
+        "height": 64,
+        "hasAlphaChannel": true,
+        "hasTransparency": true
+      },
+      "sourceBounds": {
+        "x": 48,
+        "y": 76,
+        "width": 561,
+        "height": 538
+      },
+      "outputPlacement": {
+        "x": 2,
+        "y": 3,
+        "width": 60,
+        "height": 57
+      },
+      "clearedPixelCount": 215690
+    },
+    {
+      "configurationId": "reference-cleanup-64",
+      "direction": "facing-right",
+      "preparationRunRecordPath": "workspace/records/runs/run-reference-cleanup-64-facing-right.json",
+      "candidateAssetRecordPath": "workspace/records/candidates/candidate-reference-cleanup-64-facing-right.json",
+      "reviewPngPath": "outputs/reference-cleanup-64-facing-right.png",
+      "artifact": {
+        "path": "objects/sha256/c7/c7eb45dbc685fe11de56e2cfc62fad2ec0a8373a65af8efff065508164579e07",
+        "mediaType": "image/png",
+        "encodedSha256": "c7eb45dbc685fe11de56e2cfc62fad2ec0a8373a65af8efff065508164579e07",
+        "pixelDataSha256": "143d0a46805be283e389179def57334d6f2417095de9daa3027e63c2593e855f",
+        "byteLength": 5099,
+        "width": 64,
+        "height": 64,
+        "hasAlphaChannel": true,
+        "hasTransparency": true
+      },
+      "sourceBounds": {
+        "x": 45,
+        "y": 76,
+        "width": 561,
+        "height": 538
+      },
+      "outputPlacement": {
+        "x": 2,
+        "y": 3,
+        "width": 60,
+        "height": 57
+      },
+      "clearedPixelCount": 215690
+    },
+    {
+      "configurationId": "alpha-preserve-64",
+      "direction": "facing-left",
+      "preparationRunRecordPath": "workspace/records/runs/run-alpha-preserve-64-facing-left.json",
+      "candidateAssetRecordPath": "workspace/records/candidates/candidate-alpha-preserve-64-facing-left.json",
+      "reviewPngPath": "outputs/alpha-preserve-64-facing-left.png",
+      "artifact": {
+        "path": "objects/sha256/98/98327740fb54bfcae1e8a10a45ded89cb18bc0ca7fb01d3ecb4ad33f1fcc2a94",
+        "mediaType": "image/png",
+        "encodedSha256": "98327740fb54bfcae1e8a10a45ded89cb18bc0ca7fb01d3ecb4ad33f1fcc2a94",
+        "pixelDataSha256": "efc2eb1c96dff841d2593cc7deec610602e401debf578be828d74ff6eebebd49",
+        "byteLength": 5269,
+        "width": 64,
+        "height": 64,
+        "hasAlphaChannel": true,
+        "hasTransparency": true
+      },
+      "sourceBounds": {
+        "x": 45,
+        "y": 76,
+        "width": 564,
+        "height": 547
+      },
+      "outputPlacement": {
+        "x": 2,
+        "y": 3,
+        "width": 60,
+        "height": 58
+      },
+      "clearedPixelCount": 210824
+    },
+    {
+      "configurationId": "alpha-preserve-64",
+      "direction": "facing-right",
+      "preparationRunRecordPath": "workspace/records/runs/run-alpha-preserve-64-facing-right.json",
+      "candidateAssetRecordPath": "workspace/records/candidates/candidate-alpha-preserve-64-facing-right.json",
+      "reviewPngPath": "outputs/alpha-preserve-64-facing-right.png",
+      "artifact": {
+        "path": "objects/sha256/c6/c6808b83511598070e1dcfb9c578d866b289364c040ab39c6178a9749b9fbcfc",
+        "mediaType": "image/png",
+        "encodedSha256": "c6808b83511598070e1dcfb9c578d866b289364c040ab39c6178a9749b9fbcfc",
+        "pixelDataSha256": "0c8f88f9be0ca21b60385b08e7cecfa2da20750a858b13bc3ab28d5f093376ef",
+        "byteLength": 5235,
+        "width": 64,
+        "height": 64,
+        "hasAlphaChannel": true,
+        "hasTransparency": true
+      },
+      "sourceBounds": {
+        "x": 45,
+        "y": 76,
+        "width": 564,
+        "height": 547
+      },
+      "outputPlacement": {
+        "x": 2,
+        "y": 3,
+        "width": 60,
+        "height": 58
+      },
+      "clearedPixelCount": 210824
+    },
+    {
+      "configurationId": "zero-padding-64",
+      "direction": "facing-left",
+      "preparationRunRecordPath": "workspace/records/runs/run-zero-padding-64-facing-left.json",
+      "candidateAssetRecordPath": "workspace/records/candidates/candidate-zero-padding-64-facing-left.json",
+      "reviewPngPath": "outputs/zero-padding-64-facing-left.png",
+      "artifact": {
+        "path": "objects/sha256/e2/e21098a5cea4910a38e286dfeb4f6a905f8a3fd69acdc27621688ae6df9d3cdc",
+        "mediaType": "image/png",
+        "encodedSha256": "e21098a5cea4910a38e286dfeb4f6a905f8a3fd69acdc27621688ae6df9d3cdc",
+        "pixelDataSha256": "ed7377adba2b47b5a42cc8931576880b0d60e531844b48e88950b42a14891a7c",
+        "byteLength": 5897,
+        "width": 64,
+        "height": 64,
+        "hasAlphaChannel": true,
+        "hasTransparency": true
+      },
+      "sourceBounds": {
+        "x": 48,
+        "y": 76,
+        "width": 561,
+        "height": 538
+      },
+      "outputPlacement": {
+        "x": 0,
+        "y": 1,
+        "width": 64,
+        "height": 61
+      },
+      "clearedPixelCount": 215690
+    },
+    {
+      "configurationId": "zero-padding-64",
+      "direction": "facing-right",
+      "preparationRunRecordPath": "workspace/records/runs/run-zero-padding-64-facing-right.json",
+      "candidateAssetRecordPath": "workspace/records/candidates/candidate-zero-padding-64-facing-right.json",
+      "reviewPngPath": "outputs/zero-padding-64-facing-right.png",
+      "artifact": {
+        "path": "objects/sha256/a0/a025d2b5e540bc2ce9a0fdfe1458603a349589c26886dfbb117689958ed21229",
+        "mediaType": "image/png",
+        "encodedSha256": "a025d2b5e540bc2ce9a0fdfe1458603a349589c26886dfbb117689958ed21229",
+        "pixelDataSha256": "6a67ee439c7bde0e63b0c362a3cb1d5757cb34b7ca9e5d951f01ed9703dabe49",
+        "byteLength": 5863,
+        "width": 64,
+        "height": 64,
+        "hasAlphaChannel": true,
+        "hasTransparency": true
+      },
+      "sourceBounds": {
+        "x": 45,
+        "y": 76,
+        "width": 561,
+        "height": 538
+      },
+      "outputPlacement": {
+        "x": 0,
+        "y": 1,
+        "width": 64,
+        "height": 61
+      },
+      "clearedPixelCount": 215690
+    },
+    {
+      "configurationId": "larger-grid-96",
+      "direction": "facing-left",
+      "preparationRunRecordPath": "workspace/records/runs/run-larger-grid-96-facing-left.json",
+      "candidateAssetRecordPath": "workspace/records/candidates/candidate-larger-grid-96-facing-left.json",
+      "reviewPngPath": "outputs/larger-grid-96-facing-left.png",
+      "artifact": {
+        "path": "objects/sha256/27/27153da4f041ca4640961ced3bba4d28a797ac904200b6ac98273cf975e85ff7",
+        "mediaType": "image/png",
+        "encodedSha256": "27153da4f041ca4640961ced3bba4d28a797ac904200b6ac98273cf975e85ff7",
+        "pixelDataSha256": "bebb6784a661640cec1976e1a7b192bfb28d8bb372f54176099340f11032ae6e",
+        "byteLength": 11958,
+        "width": 96,
+        "height": 96,
+        "hasAlphaChannel": true,
+        "hasTransparency": true
+      },
+      "sourceBounds": {
+        "x": 48,
+        "y": 76,
+        "width": 561,
+        "height": 538
+      },
+      "outputPlacement": {
+        "x": 2,
+        "y": 4,
+        "width": 92,
+        "height": 88
+      },
+      "clearedPixelCount": 215690
+    },
+    {
+      "configurationId": "larger-grid-96",
+      "direction": "facing-right",
+      "preparationRunRecordPath": "workspace/records/runs/run-larger-grid-96-facing-right.json",
+      "candidateAssetRecordPath": "workspace/records/candidates/candidate-larger-grid-96-facing-right.json",
+      "reviewPngPath": "outputs/larger-grid-96-facing-right.png",
+      "artifact": {
+        "path": "objects/sha256/16/16c4cd900c2472ce4d44f4ebfee897a87a5c847f8071959a04ecc1110814de86",
+        "mediaType": "image/png",
+        "encodedSha256": "16c4cd900c2472ce4d44f4ebfee897a87a5c847f8071959a04ecc1110814de86",
+        "pixelDataSha256": "66601b9e5c37047fa6924ee91ac63833ebd7f2712928c4b43e7915a5261672ac",
+        "byteLength": 11922,
+        "width": 96,
+        "height": 96,
+        "hasAlphaChannel": true,
+        "hasTransparency": true
+      },
+      "sourceBounds": {
+        "x": 45,
+        "y": 76,
+        "width": 561,
+        "height": 538
+      },
+      "outputPlacement": {
+        "x": 2,
+        "y": 4,
+        "width": 92,
+        "height": 88
+      },
+      "clearedPixelCount": 215690
+    }
+  ],
+  "generatedAt": "2026-08-25T08:30:00.000Z"
+}

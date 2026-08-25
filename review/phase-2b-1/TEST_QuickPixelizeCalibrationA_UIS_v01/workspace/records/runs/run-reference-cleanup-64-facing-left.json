@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "uis.head-preparation.run/1",
+  "kind": "preparation-run",
+  "id": "run-reference-cleanup-64-facing-left",
+  "sourceAssetId": "source-facing-left",
+  "sourceEncodedSha256": "ba06ce19e8bb4e98035a0727be71713fe2cd2814a2f816161bd68a2b1d0aa66b",
+  "workflow": {
+    "id": "quick-pixelize",
+    "version": "1.0.0",
+    "deterministic": true,
+    "parameters": {
+      "quickPixelizeConfig": {
+        "schemaVersion": "uis.head-preparation.quick-pixelize-config/1",
+        "algorithmVersion": "1.0.0",
+        "alpha": {
+          "mode": "clear-at-or-below",
+          "threshold": 15
+        },
+        "bounds": {
+          "mode": "normalized-alpha-content"
+        },
+        "target": {
+          "width": 64,
+          "height": 64,
+          "fit": "contain"
+        },
+        "resampling": "nearest-neighbor",
+        "transparentPadding": {
+          "top": 2,
+          "right": 2,
+          "bottom": 2,
+          "left": 2
+        },
+        "pngEncoding": {
+          "colorType": "rgba",
+          "bitDepth": 8,
+          "filterType": 0,
+          "deflateLevel": 9,
+          "deflateStrategy": 3
+        }
+      }
+    }
+  },
+  "reproducibilityKey": "e6a60c789efaeef2f676398c59f8868c279542e84384617d0b2baecb56412529",
+  "createdAt": "2026-08-25T08:30:00.000Z"
+}
